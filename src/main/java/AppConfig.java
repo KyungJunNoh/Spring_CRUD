@@ -9,10 +9,13 @@ import Service.MoneyServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+//@Configuration : 빈 팩토리를 위한 오브젝트 설정을 담당하는 클래스
+//@Bean : 오브젝트를 만들어 주는 메소드
+
 @Configuration
 public class AppConfig {
     @Bean
-    public MemberService memeberService(){
+    public MemberService memberService(){
         System.out.println("Call Appconfig");
         return new MemberServiceImpl(memberRepository());
     }

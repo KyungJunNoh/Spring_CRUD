@@ -11,4 +11,10 @@ public class MemoryMoneyRepository implements MoneyRepository {
     public void save(Long idx, Integer money) {
         hashMoney.put(idx,money);
     }
+    
+    @Override
+    public void find(Long idx){
+        hashMoney.get(idx);
+        System.out.println("hashMoney.get(idx) = " + hashMoney.get(idx));
+    }
 }

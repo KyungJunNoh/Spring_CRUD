@@ -1,14 +1,12 @@
 import Service.MemberService;
-import Service.MemberServiceImpl;
 import Service.MoneyService;
-import Service.MoneyServiceImpl;
 import member.Member;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class MoneyApp {
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         MoneyService moneyService = applicationContext.getBean("moneyService",MoneyService.class);
         MemberService memberService = applicationContext.getBean("memberService",MemberService.class);
 
@@ -17,6 +15,6 @@ public class MoneyApp {
         memberService.join(member);
 
         moneyService.pay(idx,10000);
-
+        moneyService.findList(1L);
     }
 }

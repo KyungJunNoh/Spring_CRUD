@@ -19,4 +19,9 @@ public class MoneyServiceImpl implements MoneyService {
     public void pay(Long idx,Integer money) {
         moneyRepository.save(idx,money);
     }
+
+    @Override
+    public void findList(Long idx){
+        moneyRepository.find(idx);
+    }
 }
