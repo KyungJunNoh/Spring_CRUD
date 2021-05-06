@@ -1,13 +1,15 @@
 package Repository;
 
 import member.Member;
+import org.springframework.stereotype.Repository;
+
 
 public interface MemberRepository {
-    void save(Member member);
+    Member save(Member member);
 
-    void findById(Long memberIdx);
+    Member findById(Long memberIdx);
 
-    void UpdateMember(Long memberIdx, Member updateMamber);
+    Member UpdateMember(Long memberIdx, Member updateMamber);
 
-    void DeleteMember(Long memberIdx);
+    Member DeleteMember(Long memberIdx);
 }

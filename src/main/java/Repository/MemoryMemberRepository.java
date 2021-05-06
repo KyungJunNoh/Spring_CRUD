@@ -1,32 +1,31 @@
 package Repository;
 
 import member.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 
+@Repository
 public class MemoryMemberRepository implements MemberRepository {
     HashMap<Long, Member> hashMember = new HashMap<Long, Member>();
 
     @Override
-    public void save(Member member) {
-        hashMember.put(member.getId(), member);
+    public Member save(Member member) {
+        return hashMember.put(member.getIdx(), member);
     }
 
     @Override
-    public void findById(Long memberIdx) {
-        hashMember.get(memberIdx);
-        System.out.println("hashMember.get(memberId) = " + hashMember.get(memberIdx));
+    public Member findById(Long memberIdx) {
+        return hashMember.get(memberIdx);
     }
 
     @Override
-    public void UpdateMember(Long memberIdx, Member updateMamber) {
-        hashMember.replace(memberIdx,updateMamber);
+    public Member UpdateMember(Long memberIdx, Member updateMamber) {
+        return hashMember.replace(memberIdx,updateMamber);
     }
 
     @Override
-    public void DeleteMember(Long memberIdx) {
-        hashMember.remove(memberIdx);
+    public Member DeleteMember(Long memberIdx) {
+        return hashMember.remove(memberIdx);
     }
-
-
 }
